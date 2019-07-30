@@ -8,18 +8,9 @@ const logger = require('../../logger');
 //   machineIdSync
 // } from 'node-machine-id';
 
-let jobList, j, currentjobschedule;
 
-var newSchedule = schedule.scheduleJob('*/1 * * * *', function () {
-  updateSched();
-});
 
-async function updateSched() {
-  logger.info('Checking for new contacts');
-  // get array of active campaigns
-  // let activeCampaigns = app.service('')
 
-}
 
 module.exports = function (app) {
   
@@ -29,11 +20,28 @@ module.exports = function (app) {
     paginate
   };
 
+  let jobList, j, currentjobschedule;
+
   // Initialize our service with any options it requires
   app.use('/updatefromapi', createService(options));
 
   // Get our initialized service so that we can register hooks
   const service = app.service('updatefromapi');
+
+  async function updateSched() {
+    logger.info('Checking for new contacts');
+    // get array of active campaigns
+    let activeCampaigns = app.service('appsettings').find({
+      query: {
+        active: true
+      }
+    });
+    logger.info(activeCampaigns);
+
+  }
+  var newSchedule = schedule.scheduleJob('*/1 * * * *', function () {
+    updateSched();
+  });
 
   service.hooks(hooks);
 };
