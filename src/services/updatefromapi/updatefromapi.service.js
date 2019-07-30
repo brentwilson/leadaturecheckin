@@ -1,11 +1,18 @@
 // Initializes the `updatefromapi` service on path `/updatefromapi`
 const createService = require('./updatefromapi.class.js');
 const hooks = require('./updatefromapi.hooks');
+const schedule = require('node-schedule');
+const logger = require('../../logger');
 // import {
 //   machineId,
 //   machineIdSync
 // } from 'node-machine-id';
 
+let jobList, j, currentjobschedule;
+
+var newSchedule = schedule.scheduleJob('*/1 * * * *', function () {
+  logger.info('scheduling working');
+});
 module.exports = function (app) {
   
   const paginate = app.get('paginate');
