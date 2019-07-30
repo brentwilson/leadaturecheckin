@@ -6,10 +6,15 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const cred = sequelizeClient.define('cred', {
-    text: {
+    siteId: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      primaryKey: true
+    },
+    USERID: DataTypes.STRING,
+    CAMPAIGNUSERID: DataTypes.STRING,
+    CAMPAIGNTOKEN: DataTypes.STRING,
+    APIKEY: DataTypes.STRING,
+    BASEURL: DataTypes.STRING
   }, {
     hooks: {
       beforeCount(options) {
