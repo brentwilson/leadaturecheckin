@@ -11,8 +11,16 @@ const logger = require('../../logger');
 let jobList, j, currentjobschedule;
 
 var newSchedule = schedule.scheduleJob('*/1 * * * *', function () {
-  logger.info('scheduling working');
+  updateSched();
 });
+
+async function updateSched() {
+  logger.info('Checking for new contacts');
+  // get array of active campaigns
+  // let activeCampaigns = app.service('')
+
+}
+
 module.exports = function (app) {
   
   const paginate = app.get('paginate');
