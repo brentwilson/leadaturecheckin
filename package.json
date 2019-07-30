@@ -40,6 +40,7 @@
     "feathers-sequelize": "^4.1.1",
     "helmet": "^3.20.0",
     "moment": "^2.24.0",
+    "node-machine-id": "^1.1.12",
     "node-schedule": "^1.3.2",
     "pg": "^7.12.0",
     "sequelize": "^5.8.11",
