@@ -2,22 +2,26 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+    return queryInterface.createTable('printer', {
+      PrinterName: {
+        type: Sequelize.STRING,
+        primaryKey: true
+      },
+      PrinterLabel: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      Station: {
+        type: Sequelize.STRING
+      },
+      Color: {
+        type: Sequelize.STRING
+      }
 
-      Example:
-      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
-    */
+    });
   },
 
-  down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
+  down: (queryInterface) => {
+    return queryInterface.dropTable('printer');
   }
 };

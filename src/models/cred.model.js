@@ -14,7 +14,12 @@ module.exports = function (app) {
     CAMPAIGNUSERID: DataTypes.STRING,
     CAMPAIGNTOKEN: DataTypes.STRING,
     APIKEY: DataTypes.STRING,
-    BASEURL: DataTypes.STRING
+    BASEURL: DataTypes.STRING,
+    TemplateLocation: {
+      type: DataTypes.STRING,
+      defaultValue: 'C:\\Badge_Template\\dropbox\\' +
+        'Dropbox\\Badge_Templates\\'
+    }
   }, {
     hooks: {
       beforeCount(options) {
