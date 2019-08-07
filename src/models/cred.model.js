@@ -19,6 +19,7 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       defaultValue: 'C:\\Badge_Template\\dropbox\\' +
         'Dropbox\\Badge_Templates\\'
+
     }
   }, {
     hooks: {

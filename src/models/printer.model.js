@@ -6,10 +6,20 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const printer = sequelizeClient.define('printer', {
-    PrinterName: {
+    Name: {
       type: DataTypes.STRING,
       primaryKey: true,
       allowNull: false
+    }, 
+    Label: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    Station: {
+      type: DataTypes.STRING
+    },
+    Color: {
+      type: DataTypes.STRING
     }
   }, {
     hooks: {

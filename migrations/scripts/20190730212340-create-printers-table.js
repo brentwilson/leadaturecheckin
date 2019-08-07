@@ -3,11 +3,11 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('printer', {
-      PrinterName: {
+      Name: {
         type: Sequelize.STRING,
         primaryKey: true
       },
-      PrinterLabel: {
+      Label: {
         type: Sequelize.STRING,
         allowNull: false
       },

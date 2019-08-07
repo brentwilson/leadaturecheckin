@@ -73,7 +73,6 @@ module.exports = {
       TypeToColor: {
         type: Sequelize.TEXT
       }
-
     });
   },
 
