@@ -31,7 +31,7 @@ module.exports = function (app) {
   async function updateSched() {
     logger.info('Checking for new contacts');
     // get array of active campaigns
-    let activeCampaigns = app.service('appsettings').find({
+    let activeCampaigns = await app.service('appsettings').find({
       query: {
         active: true
       }
@@ -39,7 +39,7 @@ module.exports = function (app) {
     logger.info(activeCampaigns);
 
   }
-  var newSchedule = schedule.scheduleJob('*/1 * * * *', function () {
+  var newSchedule = schedule.scheduleJob('*/1 * * * *', function() {
     updateSched();
   });
 
