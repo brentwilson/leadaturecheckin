@@ -2,7 +2,6 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    
     return queryInterface.createTable('attendee', {
       RegId: {
         type: Sequelize.STRING,
@@ -48,7 +47,7 @@ module.exports = {
         defaultValue: false
       },
       createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE
     });
   },
 

@@ -25,8 +25,8 @@
   "scripts": {
     "test": "npm run eslint && NODE_ENV= npm run jest",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "dev": "sequelize db:migrate && nodemon src/",
-    "start": "sequelize db:migrate && node src/",
+    "dev": "npx sequelize db:migrate && nodemon src/",
+    "start": "npx sequelize db:migrate && node src/",
     "jest": "jest"
   },
   "dependencies": {
